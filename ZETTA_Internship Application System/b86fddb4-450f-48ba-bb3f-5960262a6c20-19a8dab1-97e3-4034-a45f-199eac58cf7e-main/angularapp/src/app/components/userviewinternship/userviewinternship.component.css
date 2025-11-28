@@ -1,0 +1,140 @@
+/* General Container Styling */
+.container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistent font */
+  max-width: 1000px; /* Adjusted width for better layout */
+  margin: 30px auto;
+  padding: 30px 40px;
+  background-color: #ffffff; /* White background */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align content */
+}
+ 
+/* Title Styling */
+.container h1 {
+  font-size: 24px; /* Consistent heading size */
+  font-weight: bold;
+  color: #1a1a1a; /* Dark color for the heading */
+  margin-bottom: 20px;
+  text-align: center; /* Center-align heading */
+  font-family: inherit; /* Match container font */
+}
+ 
+/* Card Styling */
+.card {
+  border: 1px solid #ddd; /* Light border for consistency */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff; /* White background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px; /* Padding inside the card for content */
+  font-family: inherit; /* Consistent font */
+}
+ 
+.card:hover {
+  transform: translateY(-4px); /* Slight lift on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover */
+}
+ 
+/* Card Title Styling */
+.card-title {
+  font-size: 20px; /* Consistent with heading sizes */
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1a1a1a; /* Dark text color */
+  text-align: center; /* Center-align title */
+}
+ 
+/* Card Text Styling */
+.card-text {
+  font-size: 14px;
+  color: #333333; /* Slightly darker text color */
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: left; /* Left-align text for readability */
+}
+ 
+/* Apply Button Styling */
+.btn-primary {
+  background-color: #f9f9f9; /* Light gray background for consistency */
+  color: #000000; /* Black text */
+  border: 2px solid #000000; /* Black border */
+  padding: 10px 16px;
+  border-radius: 8px; /* Rounded button */
+  font-size: 14px;
+  font-weight: normal; /* Match button font weight */
+  text-transform: none; /* No uppercase text */
+  transition: all 0.3s ease;
+  display: block; /* Block level for centering */
+  margin: 0 auto; /* Center the button horizontally */
+}
+ 
+.btn-primary:disabled {
+  background-color: #cccccc; /* Light gray background when disabled */
+  color: #666666; /* Dimmed text color */
+  cursor: not-allowed;
+}
+ 
+.btn-primary:hover {
+  background-color: #e6e6e6; /* Slightly darker gray on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+ 
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15); /* Focus ring */
+}
+ 
+/* Card Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* Space between cards */
+  justify-content: center; /* Center the cards */
+}
+ 
+.col-md-4 {
+  flex: 1 1 calc(33.333% - 24px); /* 3 cards per row with equal spacing */
+  max-width: calc(33.333% - 24px);
+  min-width: 250px; /* Minimum card width for responsiveness */
+}
+ 
+/* Pagination Controls */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+ 
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: 2px solid #000000; /* Black border for consistency */
+  background-color: #f9f9f9; /* Light gray background */
+  color: #000000; /* Black text */
+  cursor: pointer;
+  border-radius: 8px; /* Rounded corners */
+  font-family: inherit; /* Consistent font */
+  font-size: 14px;
+  font-weight: normal; /* Match button font weight */
+  transition: all 0.3s ease;
+}
+ 
+.pagination button:hover {
+  background-color: #e6e6e6; /* Slightly darker gray on hover */
+}
+ 
+.pagination button:disabled {
+  background-color: #cccccc; /* Disabled state background color */
+  cursor: not-allowed;
+  border-color: #cccccc;
+}
+ 
+.pagination span {
+  margin: 0 12px; /* Space between buttons and text */
+  font-size: 14px;
+  font-weight: normal;
+  color: #555555; /* Subtle text color */
+}
+ 

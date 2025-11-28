@@ -1,0 +1,19 @@
+<h2>We'd love to know what you think! Share your feedback.</h2>
+
+<div class="feedback-wrapper">
+  <form (ngSubmit)="onSubmit(feedbackForm)" #feedbackForm="ngForm" class="feedback-form">
+    <textarea
+      class="feedback-textarea"
+      [(ngModel)]="feedback.FeedbackText"
+      name="feedbackText"
+      placeholder="Enter your feedback here..."
+      required>
+    </textarea>
+
+    <div *ngIf="feedbackRequired" class="error-message">
+      * Feedback is required.
+    </div>
+
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+</div>

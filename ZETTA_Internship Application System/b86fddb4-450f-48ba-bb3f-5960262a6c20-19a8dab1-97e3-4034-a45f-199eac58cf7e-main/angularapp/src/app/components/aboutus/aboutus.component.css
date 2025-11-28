@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EAFCFF;
+}
+ 
+.container {
+    /* background-color: white; */
+    padding: 20px;
+    border-radius: 10px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+.card-title {
+    color: #3498db;
+}
+ 
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+}
+ 
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+.heading{
+    color: #3498db;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+ 
+}
+.lead{
+    color:#484848;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+    text-align: center;
+ 
+}

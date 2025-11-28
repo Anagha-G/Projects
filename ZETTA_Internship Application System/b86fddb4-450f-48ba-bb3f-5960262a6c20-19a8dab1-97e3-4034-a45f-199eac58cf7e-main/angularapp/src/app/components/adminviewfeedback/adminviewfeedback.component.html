@@ -1,0 +1,56 @@
+<h1>Feedback Details</h1>
+<div class="container">
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="feedbacks.length === 0 && !errorMessage" class="no-data">No data found</div>
+
+  <table *ngIf="feedbacks.length > 0">
+    <thead>
+      <tr>
+        <th style="width: 5%;">#</th>
+        <th style="width: 20%;">Username</th>
+        <th style="width: 40%;">Feedback</th>
+        <th style="width: 20%;">Date</th>
+        <th style="width: 15%;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feedback of paginatedFeedbacks; let i = index">
+        <td style="text-align: center;">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+        <td style="text-align: center;">{{ feedback.User?.Username }}</td>
+        <td style="text-align: center; word-wrap: break-word;">{{ feedback?.FeedbackText }}</td>
+        <td style="text-align: center;">{{ feedback?.Date | date: 'mediumDate' }}</td>
+        <td class="actions" style="text-align: center;">
+          <button class="view-button" (click)="showProfile(feedback)">Show Profile</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ getTotalPages() }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= feedbacks.length">Next</button>
+  </div>
+
+  <!-- Profile Modal -->
+  <div *ngIf="showProfileModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeProfileModal()">&times;</span>
+      <h2>User Profile</h2>
+      <p>Email: {{ selectedFeedback?.User.Email }}</p>
+      <p>Username: {{ selectedFeedback?.User.Username }}</p>
+      <p>Mobile Number: {{ selectedFeedback?.User.MobileNumber }}</p>
+      <button (click)="closeProfileModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Logout Modal -->
+  <div *ngIf="showLogoutModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeLogoutModal()">&times;</span>
+      <h2>Are you sure you want to logout?</h2>
+      <button (click)="logout()">Yes, Logout</button>
+      <button (click)="closeLogoutModal()">Cancel</button>
+    </div>
+  </div>
+</div>

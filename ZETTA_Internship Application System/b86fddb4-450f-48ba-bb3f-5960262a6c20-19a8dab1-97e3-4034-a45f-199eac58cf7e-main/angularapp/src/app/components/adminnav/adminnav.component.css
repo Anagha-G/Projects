@@ -1,0 +1,157 @@
+/* General Navbar Styling */
+nav {
+  background: linear-gradient(to right, #ffffff, #eef2f3); /* Subtle gradient background */
+  border-bottom: 5px solid #002366; /* Dark blue bottom border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  font-family: 'Inter', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px; /* Fixed height for consistent size */
+  width: 100%; /* Full width of the viewport */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove default padding */
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0; /* Remove extra padding from the container */
+  max-width: 100%; /* Ensure the navbar spans the full width */
+  margin: 0; /* Remove any margin around the container */
+  height: 100%; /* Ensure container takes up full navbar height */
+}
+
+/* Title Styling */
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #002366;
+  letter-spacing: 1px; /* Modern spacing effect */
+  white-space: nowrap; /* Prevent title from breaking into lines */
+  margin: 0; /* Reset margin */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center text */
+  justify-content: flex-start; /* Align to the left */
+  margin-left: 2%;
+}
+
+/* Navbar Menu */
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Add spacing between menu items */
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu li a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #002366;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  border-radius: 30px; /* Rounded button-like links */
+  white-space: nowrap; /* Prevent menu items from wrapping */
+}
+
+.menu li a:hover {
+  background: #002366;
+  color: #ffffff; /* White text on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+/* Dropdown Menu Styling */
+.dropdown .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #002366;
+  padding: 10px 0;
+  list-style: none;
+  display: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dropdown shadow */
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  padding: 0;
+}
+
+.submenu li a {
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  display: block;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent submenu items from wrapping */
+}
+
+.submenu li a:hover {
+  background: #ffffff;
+  color: #002366;
+  border-radius: 5px;
+}
+
+/* User Info and Button */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #002366;
+  margin-right: 2%;
+  white-space: nowrap; /* Prevent user info from wrapping */
+}
+
+.user-info button {
+  background: #002366;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.user-info button:hover {
+  background: #ffffff;
+  color: #002366;
+  border: 1px solid #002366;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow on hover */
+}
+
+/* Ensure Navbar Items Do Not Wrap */
+.menu li a,
+.user-info span {
+  white-space: nowrap;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column; /* Stack menu items vertically */
+    gap: 10px; /* Reduce gap between items */
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-info {
+    margin-top: 10px;
+  }
+}
