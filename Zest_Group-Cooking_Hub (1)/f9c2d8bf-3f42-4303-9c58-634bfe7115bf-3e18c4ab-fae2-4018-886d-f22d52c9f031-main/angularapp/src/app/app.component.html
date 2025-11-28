@@ -1,4 +1,0 @@
-<app-navbar id="navbar" class="fixed-top" *ngIf="!isLoggedIn"></app-navbar>
-<app-adminnav id="adminav" class="fixed-top" *ngIf="isLoggedIn && userRole === 'Admin'"></app-adminnav>
-<app-usernav id="usernav" class="fixed-top" *ngIf="isLoggedIn && userRole === 'User'"></app-usernav>
-<router-outlet></router-outlet>
