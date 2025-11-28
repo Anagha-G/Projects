@@ -1,0 +1,76 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="savings-plan-container">
+  <div *ngIf="!isLoading">
+    <h2>Available Savings Plans</h2>
+    <input type="text" placeholder="Search by plan name" [(ngModel)]="searchTerm" (input)="filterPlans()">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Plan Name
+            <button class="sort-button" (click)="sortBy('Name')">
+              <span *ngIf="sortColumn === 'Name' && sortOrder === 'asc'">&#9650;</span>
+              <span *ngIf="sortColumn === 'Name' && sortOrder === 'desc'">&#9660;</span>
+              <span *ngIf="sortColumn !== 'Name'">&#x21C5;</span>
+            </button>
+          </th>
+          <th>
+            Goal Amount
+            <button class="sort-button" (click)="sortBy('GoalAmount')">
+              <span *ngIf="sortColumn === 'GoalAmount' && sortOrder === 'asc'">&#9650;</span>
+              <span *ngIf="sortColumn === 'GoalAmount' && sortOrder === 'desc'">&#9660;</span>
+              <span *ngIf="sortColumn !== 'GoalAmount'">&#x21C5;</span>
+            </button>
+          </th>
+          <th>
+            Time Frame
+            <button class="sort-button" (click)="sortBy('TimeFrame')">
+              <span *ngIf="sortColumn === 'TimeFrame' && sortOrder === 'asc'">&#9650;</span>
+              <span *ngIf="sortColumn === 'TimeFrame' && sortOrder === 'desc'">&#9660;</span>
+              <span *ngIf="sortColumn !== 'TimeFrame'">&#x21C5;</span>
+            </button>
+          </th>
+          <th>
+            Risk Level
+            <button class="sort-button" (click)="sortBy('RiskLevel')">
+              <span *ngIf="sortColumn === 'RiskLevel' && sortOrder === 'asc'">&#9650;</span>
+              <span *ngIf="sortColumn === 'RiskLevel' && sortOrder === 'desc'">&#9660;</span>
+              <span *ngIf="sortColumn !== 'RiskLevel'">&#x21C5;</span>
+            </button>
+          </th>
+          <th>Description</th>
+          <th>
+            Status
+            <button class="sort-button" (click)="sortBy('Status')">
+              <span *ngIf="sortColumn === 'Status' && sortOrder === 'asc'">&#9650;</span>
+              <span *ngIf="sortColumn === 'Status' && sortOrder === 'desc'">&#9660;</span>
+              <span *ngIf="sortColumn !== 'Status'">&#x21C5;</span>
+            </button>
+          </th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of filteredPlans"
+            [ngClass]="{'active-plan': plan.Status === 'Active', 'inactive-plan': plan.Status !== 'Active'}">
+          <td>{{plan.Name}}</td>
+          <td>{{plan.GoalAmount}}</td>
+          <td>{{plan.TimeFrame}}</td>
+          <td>{{plan.RiskLevel}}</td>
+          <td>{{plan.Description}}</td>
+          <td>{{plan.Status}}</td>
+          <td>
+            <ng-container *ngIf="isAlreadyApplied(plan.SavingsPlanId); else notApplied">
+              <span *ngIf="plan.Status === 'Active'">Already Applied</span>
+              <span *ngIf="plan.Status !== 'Active'">Not Available</span>
+            </ng-container>
+            <ng-template #notApplied>
+              <button *ngIf="plan.Status === 'Active'" (click)="applyForPlan(plan)">Apply</button>
+              <span *ngIf="plan.Status !== 'Active'">Not Available</span>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

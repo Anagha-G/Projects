@@ -1,0 +1,103 @@
+/* Navbar Container */
+.navbar {
+  background: white; /* Changed background to white */
+  color: #0052cc; /* Font color updated to blue */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0; /* Subtle bottom border for contrast */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 80px;
+}
+
+/* Navbar Logo */
+.navbar-logo {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.2); /* Pop effect on hover */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Navbar Title */
+.navbar-title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #0052cc; /* Updated title color to blue */
+  text-transform: uppercase; /* Make the text uppercase */
+  font-family: 'Montserrat', sans-serif; /* Use a professional, unique font */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Space between links */
+}
+
+.nav-link {
+  color: #0052cc; /* Updated link color to blue */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  opacity: 1; /* Default opacity */
+}
+
+/* Underline Animation */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #0052cc; /* Underline color updated to blue */
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+/* Blur Effect */
+.nav-links:hover .nav-link {
+  opacity: 0.5; /* Blur effect for non-hovered links */
+}
+
+.nav-links .nav-link:hover {
+  opacity: 1; /* Remove blur for the hovered link */
+}
+
+/* Active Link */
+.nav-link.active-link {
+  background-color: #0052cc; /* Background updated to blue */
+  color: white; /* Font color set to white for contrast */
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

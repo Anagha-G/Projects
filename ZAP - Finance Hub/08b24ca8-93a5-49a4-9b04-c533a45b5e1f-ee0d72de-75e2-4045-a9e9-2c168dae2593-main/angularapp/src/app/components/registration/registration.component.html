@@ -1,0 +1,97 @@
+<div class="registration-page">
+    <div class="registration-container">
+    <h1>Registration</h1>
+    <form #registrationForm="ngForm" (ngSubmit)="generateOtp(registrationForm)">
+        <div>
+            <label for="username">Username<span class="required">*</span></label>
+            <input type="text" id="username" name="username" [(ngModel)]="username" required pattern="^[^\s]+$" 
+            #usernameNgModel="ngModel" />
+            <div class="error-message" *ngIf="usernameNgModel.invalid &&(usernameNgModel.dirty || usernameNgModel.touched)">
+                <p *ngIf="usernameNgModel.errors?.required">Username is required</p>
+                <p *ngIf="usernameNgModel.errors?.pattern">Spaces are not allowed</p>
+            </div>
+            </div>
+
+        <!-- Email Field -->
+        <div>
+            <label for="email">Email<span class="required">*</span></label>
+            <input type="email" id="email" name="email" [(ngModel)]="email" required email #emailNgModel="ngModel">
+            <div class="error-message" *ngIf="emailNgModel.invalid && (emailNgModel.dirty || emailNgModel.touched)">
+                <p *ngIf="emailNgModel.errors?.required">Email is required</p>
+                <p *ngIf="emailNgModel.errors?.email">Invalid email format</p>
+            </div>
+        </div>
+
+        <!-- Password Field -->
+        <div>
+            <label for="password">Password<span class="required">*</span></label>
+            <input type="password" id="password" name="password" [(ngModel)]="password" required 
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$" #passwordNgModel="ngModel">
+            <div class="error-message" *ngIf="passwordNgModel.invalid && (passwordNgModel.dirty || passwordNgModel.touched)">
+                <p>Password must include at least:</p>
+                <ul class="password-requirements">
+                    <li [class.valid]="checkLowercase()">✔ One lowercase letter</li>
+                    <li [class.valid]="checkUppercase()">✔ One uppercase letter</li>
+                    <li [class.valid]="checkDigit()">✔ One digit</li>
+                    <li [class.valid]="checkSpecialChar()">✔ One special character</li>
+                    <li [class.valid]="checkMinLength()">✔ At least 8 characters</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Confirm Password Field -->
+        <div>
+            <label for="confirmPassword">Confirm Password<span class="required">*</span></label>
+            <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required #confirmPasswordNgModel="ngModel">
+            <div class="error-message" *ngIf="confirmPasswordNgModel.invalid && (confirmPasswordNgModel.dirty || confirmPasswordNgModel.touched)">
+                Confirm Password is required
+            </div>
+            <div class="error-message" *ngIf="(confirmPasswordNgModel && checkpassword())">
+                Passwords do not match
+            </div>
+        </div>
+
+        <!-- Mobile Number Field -->
+        <div>
+            <label for="mobile">Mobile Number<span class="required">*</span></label>
+            <input type="tel" id="mobile" name="mobile" [(ngModel)]="mobile" required pattern="^[0-9]{10}$" 
+                #mobileNgModel="ngModel">
+            <div class="error-message" *ngIf="mobileNgModel.invalid && (mobileNgModel.dirty || mobileNgModel.touched)">
+                <p *ngIf="mobileNgModel.errors?.required">Mobile number is required</p>
+                <p *ngIf="mobileNgModel.errors?.pattern">Mobile number must be 10 digits</p>
+            </div>
+        </div>
+
+        <!-- Role Field -->
+        <div>
+            <label for="role">Role<span class="required">*</span></label>
+            <select id="role" name="role" [(ngModel)]="role" required  #roleNgModel="ngModel">
+                <option value="" disabled>Select Your Role</option>
+                <option value="RegionalManager">Regional Manager</option>
+                <option value="Customer">Customer</option>
+            </select>
+            <div class="error-message" *ngIf="roleNgModel.invalid && (roleNgModel.dirty || roleNgModel.touched)">
+                Role is required
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="submit" type="submit" [disabled]="registrationForm.invalid">Generate OTP</button>
+    </form>
+    </div>
+
+    <div *ngIf="showOtpModal" class="otp-modal">
+    <div class="otp-modal-content">
+        <!-- Cross mark to close the modal -->
+        <span class="close-button" (click)="closeOtpModal()">×</span>
+        <h2 class="otp-header">Enter OTP</h2>
+        <p>A 6-digit OTP has been sent to your email.</p>
+        <p> Please enter it below within 3 minutes:</p>
+        <input type="text" maxlength="6" [(ngModel)]="otp" placeholder="Enter OTP" />
+        <div class="otp-actions">
+            <button (click)="resendOtp()">Resend OTP</button>
+            <button [disabled]="!otp" (click)="verifyOtp()">Register</button>
+        </div>
+    </div>
+</div>
+</div>

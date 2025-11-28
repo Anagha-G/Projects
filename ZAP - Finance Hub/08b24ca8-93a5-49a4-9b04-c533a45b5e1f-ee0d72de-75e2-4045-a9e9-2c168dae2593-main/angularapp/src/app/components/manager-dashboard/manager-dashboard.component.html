@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="landing-header">
+    <div class="header-content">
+      <h1 class="hero-title">
+        Welcome to <span class="highlight">Finance Hub</span>
+      </h1>
+      <p class="hero-subtitle">
+        Empowering managers to create, manage, and optimize Savings Plans with ease.
+        Finance Hub is your one-stop solution for overseeing plan applications, gathering valuable feedback, and ensuring a seamless experience for all users.
+      </p>
+      <div class="cta-buttons">
+        <a (click)="scrollToDashboard()" class="cta-button">Explore the Dashboard</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/assets/Manager.png" alt="Finance Hub Dashboard" />
+    </div>
+  </div>
+
+  <div #dashboardSection id="dashboard" class="manager-dashboard">
+    <div class="dashboard-header">
+      <h2>
+        Manager Dashboard
+        <span class="text-gradient">Overview</span>
+      </h2>
+      <p>Monitor and manage all activities and metrics at a glance.</p>
+    </div>
+
+    <div class="dashboard-container">
+      <div class="card" routerLink="/Manager/SavingPlans" style="cursor: pointer;">
+        <h3>{{ totalSavingsPlans }}</h3>
+        <p>Total Savings Plans</p>
+        <p><span class="green">Active: </span>{{ activeSavingsPlans }}</p>
+        <p><span class="red">Inactive: </span>{{ inactiveSavingsPlans }}</p>
+      </div>
+  
+      <div class="card" routerLink="/Manager/ApplicationForms">
+        <h3>{{ totalPlanApplications }}</h3>
+        <p>Total Plan Applications</p>
+        <p><span class="green">Approved: </span>{{ approvedPlanApplications }}</p>
+        <p><span class="red">Rejected: </span>{{ rejectedPlanApplications }}</p>
+      </div>
+
+      <div class="card" routerLink="/Manager/ApplicationForms">
+        <h3>{{ totalEnrollments }}</h3>
+        <p>Total Enrollments</p>
+      </div>
+
+      <div class="card" routerLink="/Manager/Feedbacks">
+        <h3>{{ totalFeedbacks }}</h3>
+        <p>Total Feedbacks</p>
+      </div>
+    </div>
+  </div>
+</div>

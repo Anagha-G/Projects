@@ -1,0 +1,62 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading">
+  <h2>My Feedback</h2>
+  <table *ngIf="feedbacks.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Feedback</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feedback of paginatedFeedbacks; let i = index">
+        <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+        <td>{{ feedback.Comments }}</td>
+        <td>
+          <button (click)="confirmDelete(feedback)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noData>
+    <p>Oops! No records Found</p>
+  </ng-template>
+
+  <!-- Pagination Controls -->
+  <div class="pagination" *ngIf="totalPages() > 1">
+    <button
+      class="page-btn"
+      [disabled]="currentPage === 1"
+      (click)="changePage(currentPage - 1)"
+    >
+      Previous
+    </button>
+    <button
+      *ngFor="let page of [].constructor(totalPages()); let i = index"
+      [ngClass]="{ 'active': currentPage === (i + 1) }"
+      (click)="changePage(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+    <button
+      class="page-btn"
+      [disabled]="currentPage === totalPages()"
+      (click)="changePage(currentPage + 1)"
+    >
+      Next
+    </button>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div *ngIf="delPopup" class="modal">
+  <div class="modal-content">
+    <h3>Confirm Delete</h3>
+    <p>Are you sure you want to delete this feedback?</p>
+    <div class="button-container">
+      <button class="btn btn-danger" (click)="deleteFeedback()">Delete</button>
+      <button class="btn btn-secondary" (click)="closeDel()">Cancel</button>
+    </div>
+  </div>
+</div>

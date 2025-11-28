@@ -1,0 +1,135 @@
+/* Container Styling */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #FEFEFEff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* Heading Styling */
+h2 {
+  text-align: center;
+  color: #0A3A7A; /* Blue text color */
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  background: none; /* Remove background */
+  box-shadow: none; /* Remove shadow */
+}
+
+/* Horizontal Rule Styling */
+hr {
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: 2px solid rgb(243, 243, 248);
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  background-color: #FEFEFEff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: center; /* Align all table data to the center */
+  border-bottom: 1px solid #D0E3F0ff;
+}
+
+.table th {
+  background-color: #0052cc;
+  color: #FEFEFEff;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+/* Table Data Styling */
+.table tbody tr {
+  background-color: #ffffff; /* All rows have a white background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.table tbody tr:hover {
+  transform: scale(1.03); /* Slightly enlarge the row */
+  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3); /* Shadow effect with blue contrast */
+  z-index: 1; /* Ensure the hovered row is above others */
+}
+
+/* Remove Row Striping */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #ffffff; /* Explicitly set odd rows to white */
+}
+
+/* Button Styling */
+.btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #2A8AC4ff;
+  color: #FEFEFEff;
+}
+
+.btn-primary:hover {
+  background-color: #0A3A7Aff;
+  transform: scale(1.03);
+}
+
+.btn-danger {
+  background-color: #c82333;
+  color: #FEFEFEff;
+  margin-left: 8px;
+}
+
+.btn-danger:hover {
+  background-color: #a71d2a;
+  transform: scale(1.03);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 2px;
+  padding: 8px 12px;
+  border: 1px solid #0A3A7Aff;
+  background-color: #FEFEFEff;
+  color: #0A3A7Aff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 12px; /* Reduced font size for button content (including icons) */
+}
+
+.pagination button.active,
+.pagination button:hover {
+  background-color: #0A3A7Aff;
+  color: #FEFEFEff;
+}
+
+/* If an icon element is present inside a pagination button, reduce its size */
+.pagination button i {
+  font-size: 12px; /* Adjust this value as needed for the desired icon size */
+}

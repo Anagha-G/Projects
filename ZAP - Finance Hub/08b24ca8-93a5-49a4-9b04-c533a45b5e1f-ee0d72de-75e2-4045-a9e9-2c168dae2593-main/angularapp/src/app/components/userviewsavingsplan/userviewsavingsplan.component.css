@@ -1,0 +1,251 @@
+.savings-plan-container {
+  padding: 20px;
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  overflow: hidden; /* Prevents overflow during animations */
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Animation for container fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.savings-plan-container h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #000000; /* Black text */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Search bar styling */
+.savings-plan-container input {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: 2px solid transparent; /* Default no visible border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect by default */
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  color: #000000; /* Black text */
+  background-color: #ffffff; /* White input background */
+}
+
+/* Search bar focus effect */
+.savings-plan-container input:focus {
+  border-color: #0052cc; /* Blue border on focus */
+  box-shadow: 0 0 0 rgba(31, 30, 30, 0); /* Remove shadow on focus */
+  outline: none;
+}
+
+/* Table styling */
+.savings-plan-container table {
+  width: 100%;
+  border-collapse: collapse; /* Remove spacing between cells and borders */
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.savings-plan-container th,
+.savings-plan-container td {
+  padding: 15px;
+  text-align: center; /* Center-align all column data */
+  vertical-align: middle; /* Ensures vertical alignment to the center */
+}
+
+.savings-plan-container th {
+  background-color: #0052cc; /* Blue header background */
+  color: #ffffff; /* White text for headers */
+  text-align: center;
+  font-weight: bold;
+  border: none; /* No border effect for headers */
+}
+
+/* Default row styling */
+.savings-plan-container tbody tr {
+  border: none; /* No border by default */
+  background-color: #ffffff; /* White background by default */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow by default */
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover effect for active plans (green border and background) */
+.savings-plan-container tbody tr.active-plan:hover {
+  border: 3px solid #28a745; /* Green border for active plans */
+  box-shadow: 0 8px 12px rgba(40, 167, 69, 0.5); /* Matching green shadow */
+  background-color: rgba(40, 167, 69, 0.1); /* Light green background */
+  transform: scale(1.02); /* Slightly enlarge the row */
+}
+
+/* Hover effect for inactive plans (red border and background) */
+.savings-plan-container tbody tr.inactive-plan:hover {
+  border: 3px solid #dc3545; /* Red border for inactive plans */
+  box-shadow: 0 8px 12px rgba(220, 53, 69, 0.5); /* Matching red shadow */
+  background-color: rgba(220, 53, 69, 0.1); /* Light red background */
+  transform: scale(1.02); /* Slightly enlarge the row */
+}
+
+/* Button styling */
+.savings-plan-container button {
+  padding: 10px 20px;
+  background-color: #0052cc; /* Blue button background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Button hover effect */
+.savings-plan-container button:hover {
+  background-color: #0046b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* From Uiverse.io by doniaskima */ 
+/* Loader Container Styling */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height to ensure white background */
+  background-color: #ffffff; /* White background */
+  font-family: 'Arial', sans-serif; /* Clean font for the text */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Loader */
+.loader {
+  --c1: #673b14; /* Brown color */
+  --c2: #0052cc; /* Sand-like color */
+  width: 40px;
+  height: 80px;
+  border-top: 4px solid var(--c1);
+  border-bottom: 4px solid var(--c1);
+  background: linear-gradient(90deg, var(--c1) 2px, var(--c2) 0 5px, var(--c1) 0) 50%/7px 8px no-repeat;
+  display: grid;
+  overflow: hidden;
+  animation: l5-0 2s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  width: 75%;
+  height: calc(50% - 4px);
+  margin: 0 auto;
+  border: 2px solid var(--c1);
+  border-top: 0;
+  box-sizing: content-box;
+  border-radius: 0 0 40% 40%;
+  -webkit-mask: linear-gradient(#000 0 0) bottom/4px 2px no-repeat,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  background: linear-gradient(var(--d, 0deg), var(--c2) 50%, #0000 0) bottom /100% 205%,
+    linear-gradient(var(--c2) 0 0) center/0 100%;
+  background-repeat: no-repeat;
+  animation: inherit;
+  animation-name: l5-1;
+}
+
+.loader::after {
+  transform-origin: 50% calc(100% + 2px);
+  transform: scaleY(-1);
+  --s: 3px;
+  --d: 180deg;
+}
+
+@keyframes l5-0 {
+  80% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0.5turn);
+  }
+}
+
+@keyframes l5-1 {
+  10%, 70% {
+    background-size: 100% 205%, var(--s, 0) 100%;
+  }
+  70%, 100% {
+    background-position: top, center;
+  }
+}
+
+/* Loading Text Styling */
+.loading-text {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #0052cc; /* Initial brown color */
+  font-weight: bold;
+  display: flex;
+  gap: 3px; /* Space between letters */
+}
+
+.loading-text span {
+  animation: fade 2s infinite;
+  color: #0052cc; /* Default brown color */
+  opacity: 1; /* Fully visible initially */
+}
+
+/* Add delay to each letter for smooth fade effect */
+.loading-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+.loading-text span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loading-text span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loading-text span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.loading-text span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.loading-text span:nth-child(6) {
+  animation-delay: 1s;
+}
+.loading-text span:nth-child(7) {
+  animation-delay: 1.2s;
+}
+.loading-text span:nth-child(8) {
+  animation-delay: 1.4s;
+}
+.loading-text span:nth-child(9) {
+  animation-delay: 1.6s;
+}
+.loading-text span:nth-child(10) {
+  animation-delay: 1.8s;
+}
+
+/* Fade-in and fade-out effect */
+@keyframes fade {
+  0%, 100% {
+    opacity: 1; /* Fully visible */
+    color: #673b14; /* Brown color */
+  }
+  50% {
+    opacity: 0.7; /* Slightly faded */
+    color: #f8b13b; /* Sand-like color */
+  }
+}

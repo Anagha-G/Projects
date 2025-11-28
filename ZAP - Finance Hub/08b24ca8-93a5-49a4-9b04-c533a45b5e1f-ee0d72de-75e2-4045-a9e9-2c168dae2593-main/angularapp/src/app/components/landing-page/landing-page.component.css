@@ -1,0 +1,252 @@
+.finance-hub-landing {
+    font-family: 'Inter', sans-serif;
+    color: #2d3748;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 0 2rem; /* Reduced padding */
+      min-height: 80vh;
+  
+      .hero-content {
+        flex: 1;
+        padding-right: 3rem;
+  
+        .hero-title {
+          font-size: 4rem;
+          font-weight: 900;
+          line-height: 1.1;
+          margin-bottom: 1.5rem;
+          letter-spacing: -0.05em;
+  
+          .highlight {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+          }
+        }
+  
+        .hero-subtitle {
+          font-size: 1.5rem;
+          color: #4a5568;
+          margin-bottom: 3rem;
+          max-width: 600px;
+        }
+  
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+  
+          button {
+            font-size: 1.1rem;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+          }
+  
+          .primary-cta {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+          }
+  
+          .primary-cta:hover {
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+          }
+        }
+      }
+  
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        img {
+          max-width: 100%; /* Adjusted size for the image */
+          height: auto;
+          border-radius: 8px; /* Optional: Add rounded corners */
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better aesthetics */
+        }
+      }
+    }
+  
+    .stats-section {
+      display: flex;
+      justify-content: space-around;
+      margin: 3rem 0 1.5rem; /* Reduced margin between Stats and Features */
+      padding: 2rem 0;
+      background: #f8fafc;
+      border-radius: 16px;
+  
+      .stat-card {
+        text-align: center;
+  
+        .stat-number {
+          font-size: 4rem;
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+  
+        .stat-label {
+          font-size: 1.25rem;
+          color: #4a5568;
+          font-weight: 500;
+        }
+      }
+    }
+  
+    .features-section {
+      margin: 4rem 0; /* Adjusted margin to align closer to Stats Section */
+  
+      .section-title {
+        font-size: 3.5rem;
+        text-align: center;
+        margin-bottom: 5rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+  
+        .text-gradient {
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+      }
+  
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+  
+        .feature-card {
+          background: #ffffff;
+          border-radius: 16px;
+          padding: 2.5rem;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+  
+          &:hover {
+            transform: translateY(-10px);
+          }
+  
+          .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+          }
+  
+          .feature-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+          }
+  
+          .feature-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  
+    .testimonial-section {
+      margin-top: 6rem; /* Adjust spacing */
+      .section-title {
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+  
+        .text-gradient {
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+      }
+  
+      .testimonial-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 2.5rem; /* Adjust padding */
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+        .testimonial-text {
+          font-size: 1.5rem;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          font-style: italic;
+          color: #2d3748;
+        }
+  
+        .testimonial-author {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+  
+          .author-avatar {
+            display: none; /* Removed the avatar */
+          }
+  
+          .author-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          }
+  
+          .author-title {
+            color: #4a5568;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  
+    .final-cta {
+      text-align: center;
+      margin: 6rem 0; /* Reduced box size */
+      padding: 3rem 2rem; /* Reduced box size */
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 16px;
+      color: white;
+  
+      .cta-title {
+        font-size: 3rem; /* Adjusted font size */
+        font-weight: 800;
+        margin-bottom: 2rem;
+        letter-spacing: -0.03em;
+  
+        .text-gradient {
+          color: white;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+  
+      .cta-button {
+        font-size: 1.25rem;
+        padding: 1rem 3rem;
+        border-radius: 8px;
+        font-weight: 600;
+        background: white;
+        color: #3b82f6;
+      }
+    }
+  }

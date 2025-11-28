@@ -1,0 +1,77 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading">
+<h1>Feedback Details</h1>
+<hr>
+<table *ngIf="dataFetched && feedbacks.length > 0; else noData">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>User Name</th>
+      <th>Feedback</th>
+      <th>Posted Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let feedback of paginatedFeedbacks; index as i">
+      <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+      <td>{{ feedback.User?.Username }}</td>
+      <td>{{ feedback.Comments }}</td>
+      <td>{{ feedback.DateProvided | date: 'mediumDate' }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="showDetails(feedback)">Show Details</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- No Data Message -->
+<ng-template #noData>
+  <div *ngIf="dataFetched" class="no-data-container">
+    <div class="no-data-icon">💬</div> <!-- Professional feedback emoji icon -->
+    <p class="no-data-message">Oops! No feedback records found.</p>
+  </div>
+</ng-template>
+
+<!-- Pagination Controls -->
+<div class="pagination" *ngIf="dataFetched && totalPages() > 1">
+  <button
+    class="page-btn"
+    [disabled]="currentPage === 1"
+    (click)="changePage(currentPage - 1)"
+  >
+    Previous
+  </button>
+  <button
+    *ngFor="let page of [].constructor(totalPages()); let i = index"
+    [ngClass]="{ 'active': currentPage === (i + 1) }"
+    (click)="changePage(i + 1)">
+    {{ i + 1 }}
+  </button>
+  <button
+    class="page-btn"
+    [disabled]="currentPage === totalPages()"
+    (click)="changePage(currentPage + 1)">
+    Next
+  </button>
+</div>
+
+<!-- Details Popup -->
+<div *ngIf="showDetailsPopup" class="innovative-modal">
+  <div class="modal-overlay" (click)="closeDetailsPopup()"></div>
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>User Details</h2>
+      <button class="close-button" (click)="closeDetailsPopup()">×</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Username:</strong> {{ selectedUserDetails.Username }}</p>
+      <p><strong>Email Address:</strong> {{ selectedUserDetails.Email }}</p>
+      <p><strong>Phone Number:</strong> {{ selectedUserDetails.MobileNumber }}</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="closeDetailsPopup()">Close</button>
+    </div>
+  </div>
+</div>
+</div>

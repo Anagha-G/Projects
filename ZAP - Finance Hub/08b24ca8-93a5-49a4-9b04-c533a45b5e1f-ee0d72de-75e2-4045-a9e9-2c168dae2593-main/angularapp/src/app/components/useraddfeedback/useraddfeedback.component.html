@@ -1,0 +1,30 @@
+<div class="add-feedback-container">
+  <h2 class="centered-heading">We Value Your Feedback</h2>
+  <p class="subheading">Your feedback helps us improve and provide better service.</p>
+  <div class="form-container">
+    <form #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm)">
+      <div class="form-group">
+        <label for="Comments">Your Feedback<span class="required">*</span></label>
+        <textarea
+          id="Comments"
+          [(ngModel)]="feedback.Comments"
+          name="Comments"
+          required
+          placeholder="Write your feedback here..."></textarea>
+        <div *ngIf="feedbackForm.submitted && !feedback.Comments" class="validation-message">
+          Feedback is required.
+        </div>
+      </div>
+      <div class="form-group-submit">
+        <button type="submit" class="btn btn-success" [disabled]="isSubmitting">Submit Feedback</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="showPopup" class="popup">
+  <div class="popup-content">
+    <p>Thank you for your feedback!</p>
+    <button (click)="closePopup()">Close</button>
+  </div>
+</div>
